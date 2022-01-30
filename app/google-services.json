@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "884698822682",
+    "project_id": "feedthecat-20bfc",
+    "storage_bucket": "feedthecat-20bfc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884698822682:android:1343539640311d4e5fb9a3",
+        "android_client_info": {
+          "package_name": "by.bsuir.feed_the_cat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "884698822682-iqniqpss2mucpr3ipsr0j1h3tt0v3o5d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCc3hDcxm6Tf3YmsPLXYeMKlWS2qBpKr-g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "884698822682-iqniqpss2mucpr3ipsr0j1h3tt0v3o5d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

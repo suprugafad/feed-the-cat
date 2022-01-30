@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">feed_the_cat</string>
+    <string name="satiety">Satiety</string>
+    <string name="value_of_satiety">0</string>
+    <string name="button_feed_text">Feed</string>
+    <string name="title">Feed the cat</string>
+    <string name="further_button">Далее</string>
+    <string name="name_input">Input your name:</string>
+    <string name="registration_button">GO!</string>
+    <string name="start_new">New Game</string>
+    <string name="start_results">Results</string>
+    <string name="start_help">Help</string>
+    <string name="start_about_author">About Author</string>
+    <string name="main_result">Your Result:</string>
+    <string name="main_result_value">0</string>
+    <string name="input_name_default">Name</string>
+    <string name="title_activity_maps">MapsActivity</string>
+
+</resources>
