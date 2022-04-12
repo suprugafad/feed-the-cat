@@ -26,8 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
     int satiety;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
