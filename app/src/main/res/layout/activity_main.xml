@@ -6,16 +6,40 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
+    <Button
+        android:id="@+id/home_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:text="@string/button_home_text"
+
+        app:backgroundTint="@color/button_red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageSwitcher
+        android:id="@+id/imageSwitcher"
         android:layout_width="254dp"
         android:layout_height="211dp"
-        android:layout_marginBottom="140dp"
+        android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toTopOf="@+id/feed_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/cat"
-        android:contentDescription="cat" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/cat_img"
+            android:layout_width="254dp"
+            android:layout_height="211dp"
+            android:layout_marginBottom="100dp"
+            android:contentDescription="@string/cat_name"
+            app:layout_constraintBottom_toTopOf="@+id/feed_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/cat" />
+
+    </ImageSwitcher>
 
     <TextView
         android:id="@+id/satiety"
@@ -48,11 +72,14 @@
         android:id="@+id/feed_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="112dp"
         android:text="@string/button_feed_text"
 
         app:backgroundTint="@color/button_red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

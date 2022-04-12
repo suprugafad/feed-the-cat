@@ -15,5 +15,7 @@
     <string name="main_result_value">0</string>
     <string name="input_name_default">Name</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="button_home_text">Home</string>
+    <string name="cat_name">cat</string>
 
 </resources>

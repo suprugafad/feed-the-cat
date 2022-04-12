@@ -3,14 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Bull/AndroidStudioProjects/feed_the_cat/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2595" />
+        <entry key="..\:/Users/Bull/AndroidStudioProjects/feed_the_cat/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2595" />
         <entry key="..\:/Users/Bull/AndroidStudioProjects/feed_the_cat/app/src/main/res/layout/activity_about.xml" value="0.2" />
         <entry key="..\:/Users/Bull/AndroidStudioProjects/feed_the_cat/app/src/main/res/layout/activity_help.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Bull/AndroidStudioProjects/feed_the_cat/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Bull/AndroidStudioProjects/feed_the_cat/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Bull/AndroidStudioProjects/feed_the_cat/app/src/main/res/layout/activity_maps.xml" value="0.20471014492753623" />
         <entry key="..\:/Users/Bull/AndroidStudioProjects/feed_the_cat/app/src/main/res/layout/activity_registration.xml" value="0.264" />
         <entry key="..\:/Users/Bull/AndroidStudioProjects/feed_the_cat/app/src/main/res/layout/activity_registration2.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Bull/AndroidStudioProjects/feed_the_cat/app/src/main/res/layout/activity_start.xml" value="0.264" />
         <entry key="..\:/Users/Bull/AndroidStudioProjects/feed_the_cat/app/src/main/res/layout/activity_start2.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Bull/AndroidStudioProjects/feed_the_cat/app/src/main/res/xml/anim.xml" value="0.10185185185185185" />
       </map>
     </option>
   </component>
