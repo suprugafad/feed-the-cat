@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.common.SignInButton;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     ImageView catImg;
 
     int satiety;
+
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,12 @@ public class MainActivity extends AppCompatActivity {
         catImg = (ImageView) findViewById(R.id.cat_img);
 
         satiety = parseInt(textValueOfSatiety.getText().toString());
+
+        RegistrationActivity ra = new RegistrationActivity();
+        user = RegistrationActivity.getUser();
+
+        FirebaseDatabase db = FirebaseDatabase.getInstance();
+        DatabaseReference users = db.getReference().child("Users");
 
         Intent stActivity = new Intent(this, StartActivity.class);
 
@@ -69,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener oclHomeButton = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                user.highscore = satiety;
+                users.child(user.getName()).setValue(user);
                 startActivity(stActivity);
             }
         };

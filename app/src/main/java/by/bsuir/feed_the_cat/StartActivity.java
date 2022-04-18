@@ -1,5 +1,6 @@
 package by.bsuir.feed_the_cat;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,6 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
+
 public class StartActivity extends AppCompatActivity {
 
     Button newGameButton;
@@ -15,7 +24,12 @@ public class StartActivity extends AppCompatActivity {
     Button helpButton;
     Button aboutAuthorButton;
 
+    SignInButton signInGoogleButton;
+    GoogleSignInClient mGoogleSignInClient;
+
     TextView mainResultsValue;
+
+    TextView userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +43,17 @@ public class StartActivity extends AppCompatActivity {
         helpButton = (Button) findViewById(R.id.help_button);
         aboutAuthorButton = (Button) findViewById(R.id.about_author_button);
 
+        signInGoogleButton = findViewById(R.id.bt_google_sign_in);
+
         mainResultsValue = (TextView) findViewById(R.id.main_result_value);
+
+        userName = (TextView) findViewById(R.id.user_name);
 
         Intent newGameIntent = new Intent(this, RegistrationActivity.class);
         Intent helpIntent = new Intent(this, HelpActivity.class);
 
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
         View.OnClickListener oclButton = new View.OnClickListener() {
             @Override
@@ -55,13 +75,48 @@ public class StartActivity extends AppCompatActivity {
             }
         };
 
+        signInGoogleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+                startActivityForResult(signInIntent, 100);
+
+            }
+        });
+
         newGameButton.setOnClickListener(oclButton);
         resultsButton.setOnClickListener(oclButton);
         helpButton.setOnClickListener(oclButton);
         aboutAuthorButton.setOnClickListener(oclButton);
     }
 
-//    private void showAuthorWindow() {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 100) { //google authorisation
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            handleSignInResult(task);
+        }
+    }
+
+    public void handleSignInResult(Task<GoogleSignInAccount> task) {
+        try {
+            GoogleSignInAccount account = task.getResult(ApiException.class);
+        } catch (Exception e) {
+            googleSignInOk(null);
+        }
+    }
+
+    public void googleSignInOk(GoogleSignInAccount account) {
+        if (account == null) { //authorization error
+
+        } else {
+            userName.setText(account.getDisplayName());
+        }
+    }
+
+    //    private void showAuthorWindow() {
 //        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
 //        dialog.setTitle("ЛР №1");
 //        dialog.setMessage("Пойда Александрина 951007");

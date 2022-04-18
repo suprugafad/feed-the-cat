@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/daisy"
+
     tools:context=".MainActivity">
 
     <Button
@@ -14,44 +15,46 @@
         android:layout_marginBottom="44dp"
         android:text="@string/button_home_text"
 
-        app:backgroundTint="@color/button_red"
+        android:background="@drawable/btn_tap_animation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageSwitcher
-        android:id="@+id/imageSwitcher"
+<!--    <ImageSwitcher-->
+<!--        android:id="@+id/imageSwitcher"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="300dp"-->
+<!--        android:layout_marginBottom="100dp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/feed_button"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent">-->
+
+    <!--    </ImageSwitcher>-->
+
+    <ImageView
+        android:id="@+id/cat_img"
         android:layout_width="254dp"
         android:layout_height="211dp"
         android:layout_marginBottom="100dp"
+        android:contentDescription="@string/cat_name"
         app:layout_constraintBottom_toTopOf="@+id/feed_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageView
-            android:id="@+id/cat_img"
-            android:layout_width="254dp"
-            android:layout_height="211dp"
-            android:layout_marginBottom="100dp"
-            android:contentDescription="@string/cat_name"
-            app:layout_constraintBottom_toTopOf="@+id/feed_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/cat" />
-
-    </ImageSwitcher>
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/cat" />
 
     <TextView
         android:id="@+id/satiety"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="256dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="72dp"
+        android:fontFamily="@font/montserrat_alternates"
         android:text="@string/satiety"
         android:textColor="@color/black"
         android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -59,9 +62,9 @@
         android:id="@+id/value_of_satiety"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="72dp"
+        android:fontFamily="@font/montserrat_alternates"
         android:text="@string/value_of_satiety"
         android:textColor="@color/black"
         android:textSize="30sp"
@@ -76,7 +79,7 @@
         android:layout_marginBottom="112dp"
         android:text="@string/button_feed_text"
 
-        app:backgroundTint="@color/button_red"
+        android:background="@drawable/btn_tap_animation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
