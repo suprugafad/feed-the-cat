@@ -1,12 +1,9 @@
 package by.bsuir.feed_the_cat;
 
-import static java.lang.Integer.parseInt;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -18,14 +15,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.net.SocketOption;
-import java.sql.SQLOutput;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -51,18 +42,15 @@ public class MainActivity extends AppCompatActivity {
         textValueOfSatiety = (TextView) findViewById(R.id.value_of_satiety);
         catImg = (ImageView) findViewById(R.id.cat_img);
 
-
-        if (RegistrationActivity.flag){
+        if (RegistrationActivity.flag) {
             user = RegistrationActivity.getUser();
             RegistrationActivity.flag = false;
         } else {
             user = AuthActivity.getUser();
-
         }
 
-        System.out.println(user.name);
-
         satiety = user.highScore;
+        textValueOfSatiety.setText(Integer.toString(satiety));
 
         Intent stActivity = new Intent(this, StartActivity.class);
 

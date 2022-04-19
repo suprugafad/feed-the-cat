@@ -2,10 +2,6 @@ package by.bsuir.feed_the_cat;
 
 import static android.content.ContentValues.TAG;
 
-import static java.lang.Thread.sleep;
-
-import androidx.annotation.IntegerRes;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -16,14 +12,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.Map;
 
 public class AuthActivity extends AppCompatActivity {
 
@@ -73,9 +69,10 @@ public class AuthActivity extends AppCompatActivity {
                         if(!dataSnapshot.exists()) {
                             Snackbar.make(root, "User with this name isn't exist", Snackbar.LENGTH_SHORT).show();
                         } else {
+                            Map<String, User> currUser = (Map<String, User>) dataSnapshot.getValue();
                             user = new User();
                             user.name = findUsers.getKey();
-                            //user.highScore = Integer.parseInt(findUsers.child("highscore").get().toString());
+                            user.highScore = Integer.parseInt(String.valueOf(currUser.get("highScore")));
                             startActivity(startGame);
                         }
                     }
