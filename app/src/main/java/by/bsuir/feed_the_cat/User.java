@@ -2,13 +2,13 @@ package by.bsuir.feed_the_cat;
 
 public class User {
     String name;
-    int highscore;
+    int highScore;
 
     public User() {}
 
     public User(String name) {
         this.name = name;
-        this.highscore = 0;
+        this.highScore = 0;
     }
 
     public String getName() {
@@ -19,11 +19,11 @@ public class User {
         this.name = name;
     }
 
-    public int getHighscore() {
-        return highscore;
+    public int getHighScore() {
+        return highScore;
     }
 
-    public void setHighscore(int highscore) {
-        this.highscore = highscore;
+    public void setHighScore(int highScore) {
+        this.highScore = highScore;
     }
 }

@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -17,9 +18,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.net.SocketOption;
+import java.sql.SQLOutput;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     User user;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,23 +51,25 @@ public class MainActivity extends AppCompatActivity {
         textValueOfSatiety = (TextView) findViewById(R.id.value_of_satiety);
         catImg = (ImageView) findViewById(R.id.cat_img);
 
-        satiety = parseInt(textValueOfSatiety.getText().toString());
 
-        RegistrationActivity ra = new RegistrationActivity();
-        user = RegistrationActivity.getUser();
+        if (RegistrationActivity.flag){
+            user = RegistrationActivity.getUser();
+            RegistrationActivity.flag = false;
+        } else {
+            user = AuthActivity.getUser();
 
-        FirebaseDatabase db = FirebaseDatabase.getInstance();
-        DatabaseReference users = db.getReference().child("Users");
+        }
+
+        System.out.println(user.name);
+
+        satiety = user.highScore;
 
         Intent stActivity = new Intent(this, StartActivity.class);
 
-        final Animation animationRotateCenter = AnimationUtils.loadAnimation(
-                this, R.anim.cat_rotation);
+        final Animation animationRotateCenter = AnimationUtils.loadAnimation(this, R.anim.cat_rotation);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
-
-        myRef.setValue("Hello");
+        DatabaseReference users = database.getReference("Users");
 
         View.OnClickListener oclFeedButton = new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
@@ -71,14 +80,13 @@ public class MainActivity extends AppCompatActivity {
 
                 if (satiety % 15 == 0)
                     catImg.startAnimation(animationRotateCenter);
-
             }
         };
 
         View.OnClickListener oclHomeButton = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                user.highscore = satiety;
+                user.highScore = satiety;
                 users.child(user.getName()).setValue(user);
                 startActivity(stActivity);
             }

@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.Task;
 public class StartActivity extends AppCompatActivity {
 
     Button newGameButton;
+    Button continueButton;
     Button resultsButton;
     Button helpButton;
     Button aboutAuthorButton;
@@ -39,6 +40,7 @@ public class StartActivity extends AppCompatActivity {
         setTitle(R.string.title);
 
         newGameButton = (Button) findViewById(R.id.new_game_button);
+        continueButton = (Button) findViewById(R.id.continue_button);
         resultsButton = (Button) findViewById(R.id.results_button);
         helpButton = (Button) findViewById(R.id.help_button);
         aboutAuthorButton = (Button) findViewById(R.id.about_author_button);
@@ -51,6 +53,7 @@ public class StartActivity extends AppCompatActivity {
 
         Intent newGameIntent = new Intent(this, RegistrationActivity.class);
         Intent helpIntent = new Intent(this, HelpActivity.class);
+        Intent continueIntent = new Intent(this, AuthActivity.class);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
@@ -61,6 +64,9 @@ public class StartActivity extends AppCompatActivity {
                 switch (v.getId()) {
                     case (R.id.new_game_button):
                         startActivity(newGameIntent);
+                        break;
+                    case (R.id.continue_button):
+                        startActivity(continueIntent);
                         break;
 //                    case (R.id.results_button):
 //
@@ -85,6 +91,7 @@ public class StartActivity extends AppCompatActivity {
         });
 
         newGameButton.setOnClickListener(oclButton);
+        continueButton.setOnClickListener(oclButton);
         resultsButton.setOnClickListener(oclButton);
         helpButton.setOnClickListener(oclButton);
         aboutAuthorButton.setOnClickListener(oclButton);
