@@ -23,4 +23,16 @@
     <string name="table_raw_name">Name</string>
     <string name="table_raw_high_score">Score</string>
 
+    <string name="get_started">Get Started</string>
+    <string name="next">Next</string>
+    <string name="feed_slider">Feed pet</string>
+    <string name="high_scores_slider">High Scores</string>
+    <string name="friends_slider">Friends</string>
+    <string name="love_slider"><![CDATA[<3]]></string>
+    <string name="feed_slider_text">Feed your lovely pet by pressing FEED button</string>
+    <string name="high_scores_slider_text">Bit your own high scores</string>
+    <string name="friends_slider_text">Invite your friends and compete with each other</string>
+    <string name="love_slider_text">Have a nice game!</string>
+
+
 </resources>
