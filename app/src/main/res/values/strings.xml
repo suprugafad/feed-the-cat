@@ -8,7 +8,7 @@
     <string name="name_input">Enter your name:</string>
     <string name="registration_button">GO!</string>
     <string name="start_new">New Game</string>
-    <string name="start_results">Results</string>
+    <string name="start_results">Top Players</string>
     <string name="start_help">Help</string>
     <string name="start_about_author">About Author</string>
     <string name="main_result">Your Result:</string>
@@ -18,5 +18,9 @@
     <string name="button_home_text">Home</string>
     <string name="cat_name">cat</string>
     <string name="continue_btn">Continue</string>
+    <string name="about_author">Laboratory work №1 Poida Alexandrina, group 951007</string>
+    <string name="table_header">Top 5 players</string>
+    <string name="table_raw_name">Name</string>
+    <string name="table_raw_high_score">Score</string>
 
 </resources>

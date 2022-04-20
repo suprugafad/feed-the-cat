@@ -3,6 +3,8 @@ package by.bsuir.feed_the_cat;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -32,6 +34,9 @@ public class StartActivity extends AppCompatActivity {
 
     TextView userName;
 
+    User user;
+
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,9 +59,17 @@ public class StartActivity extends AppCompatActivity {
         Intent newGameIntent = new Intent(this, RegistrationActivity.class);
         Intent helpIntent = new Intent(this, HelpActivity.class);
         Intent continueIntent = new Intent(this, AuthActivity.class);
+        Intent resultsIntent = new Intent(this, TableActivity.class);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+        user = MainActivity.getUser();
+
+        if (user != null) {
+            int score = user.highScore;
+            mainResultsValue.setText(Integer.toString(score));
+        }
 
         View.OnClickListener oclButton = new View.OnClickListener() {
             @Override
@@ -68,15 +81,15 @@ public class StartActivity extends AppCompatActivity {
                     case (R.id.continue_button):
                         startActivity(continueIntent);
                         break;
-//                    case (R.id.results_button):
-//
-//                        break;
+                    case (R.id.results_button):
+                        startActivity(resultsIntent);
+                        break;
                     case (R.id.help_button):
                         startActivity(helpIntent);
                         break;
-//                    case (R.id.about_author_button):
-//                        showAuthorWindow();
-//                        break;
+                    case (R.id.about_author_button):
+                        showAuthorWindow();
+                        break;
                 }
             }
         };
@@ -123,17 +136,11 @@ public class StartActivity extends AppCompatActivity {
         }
     }
 
-    //    private void showAuthorWindow() {
-//        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-//        dialog.setTitle("ЛР №1");
-//        dialog.setMessage("Пойда Александрина 951007");
-//
-//        dialog.setNegativeButton("Ok.", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialogInterface, int i) {
-//                dialogInterface.dismiss();
-//            }
-//        });
-//
-//    }
+    private void showAuthorWindow() {
+        Dialog dialog = new Dialog(this);
+        dialog.setTitle("Task №1");
+        dialog.setContentView(R.layout.dialog_view);
+        TextView text = (TextView) dialog.findViewById(R.id.about_author_text);
+        dialog.show();
+    }
 }

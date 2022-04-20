@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     int satiety;
 
-    User user;
+    static User user;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -79,9 +79,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(stActivity);
             }
         };
+
+        user.highScore = satiety;
+
         feedButton.setOnClickListener(oclFeedButton);
         homeButton.setOnClickListener(oclHomeButton);
-
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -118,6 +120,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public static User getUser(){
+        return user;
     }
 
 }
